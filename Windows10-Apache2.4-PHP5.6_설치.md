@@ -61,7 +61,7 @@ date.timezone = Asia/seoul
 
 `C:\Apache24\conf\httpd.conf` 파일 수정
 
-```properties
+```
 # IfModule 안쪽 부분 수정
 <IfModule dir_module>
 	DirectoryIndex index.php index.html index.htm
@@ -81,7 +81,7 @@ LoadModule php5_module "C:\php56\php5apache2_4.dll"
 
 ```php
 <?php
-	phpinfo();
+    phpinfo();
 ?>
 ```
 
