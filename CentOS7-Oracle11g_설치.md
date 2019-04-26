@@ -60,7 +60,7 @@ $ dbstart oracle11g
 ```
 
 
-### 포트 변경: 1521 -> 8421
+#### 포트 변경: 1521 -> 8421
 
 ```bash
 # $ORACLE_HOME/network/admin/listener.ora, tnsnames.ora 파일 수정해도 잘 적용 안 된다.
@@ -74,7 +74,7 @@ $ netca
 $ netstat -nap | grep LISTEN | grep :8421
 ```
 
-### 서버 재부팅 시 자동실행 설정
+#### 서버 재부팅 시 자동실행 설정
 
 이 [링크1](https://wookoa.tistory.com/213)를 참고해서 진행하되 서비스 파일 경로는 이 [링크2](https://hadafq8.wordpress.com/2016/03/05/rhel-7oel-7centos-7-configuring-automatic-startup-of-oracle-db-under-systemd/)처럼 `/etc/systemd/system/`으로 사용했다.
 
