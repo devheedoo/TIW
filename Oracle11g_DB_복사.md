@@ -1,4 +1,4 @@
-## Oracle11g DB  
+## Oracle11g DB 복사
 
 1, 2번 과정은 직접 이관할 대상 Oracle에 루트 권한으로 접속해서 진행한다.
 
