@@ -61,10 +61,6 @@ grant create view to [USER_NAME];
 
 -- 한 번에 해도 된다. (암호화 기능 권한 빼고)
 grant create session, create database link, create materialized view, create procedure, create public synonym, create role, create sequence, create synonym, create table, drop any table, create trigger, create type, create view to [USER_NAME];
-
--- 추가: 필요한 경우 암호화 기능 권한 부여
-
-
 ```
 
 필요한 경우 추가 권한 부여:
