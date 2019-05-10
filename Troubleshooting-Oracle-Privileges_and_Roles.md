@@ -1,0 +1,1 @@
+[Stackoverflow: How could I prevent a user from querying on other schemas in Oracle?](https://stackoverflow.com/questions/56055954/how-could-i-prevent-a-user-from-querying-select-on-other-schemas-in-oracle)
