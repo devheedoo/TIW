@@ -63,9 +63,26 @@ grant create view to [USER_NAME];
 grant create session, create database link, create materialized view, create procedure, create public synonym, create role, create sequence, create synonym, create table, drop any table, create trigger, create type, create view to [USER_NAME];
 
 -- 추가: 필요한 경우 암호화 기능 권한 부여
-grant execute on dbms_crypto to [USER_NAME];
+
 
 ```
+
+필요한 경우 추가 권한 부여:
+
+```sql
+-- 암호화 기능 권한 부여
+grant execute on dbms_crypto to [USER_NAME];
+
+-- 다른 사용자의 테이블 사용
+grant insert, select, update, delete on [ANOTHER_USER_NAME].[TABLE_NAME] to [USER_NAME];
+
+-- 다른 사용자의 시퀀스 사용
+grant select, alter on [ANOTHER_USER_NAME].[SEQUENCE_NAME] to [USER_NAME];
+```
+
+다른 권한이 필요한 경우 다음 문서 참고해서 권한 추가
+
+- [Database SQL Language Reference: GRANT](https://docs.oracle.com/cd/B28359_01/server.111/b28286/statements_9013.htm#SQLRF01603)
 
 사용자 시스템 권한 확인:
 
@@ -157,3 +174,14 @@ TABLE에 대해 데이터 삽입 중 오류 발생: TABLE_NAME. 500 행을 포�
 객체 지정:
 
 - 조회 클릭 후 전체 선택해서 우측으로 이동
+
+
+### 4. 사용자 역할 회수(중요)
+
+SQL Developer를 이용한 데이터베이스 복사 후 필요없는 역할을 회수한다.
+
+이 권한을 회수하지 않으면 타 사용자의 데이터베이스를 마음대로 조회할 수 있으므로 꼭 회수해야 한다.
+
+```sql
+REVOKE exp_full_database, imp_full_databsae FROM [USER_NAME];
+```
