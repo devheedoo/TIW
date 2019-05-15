@@ -62,17 +62,51 @@ $ dbstart oracle11g
 
 #### 포트 변경: 1521 -> 8421
 
+$ORACLE_HOME/network/admin/listener.ora, tnsnames.ora 파일을 수정해도 포트 변경 작업이 잘 되지 않아 `netca`를 다시 실행해서 해결했다.
+
+PC에서 Xming 프로그램을 실행한 후, 
+
 ```bash
-# $ORACLE_HOME/network/admin/listener.ora, tnsnames.ora 파일 수정해도 잘 적용 안 된다.
-# 다시 리스너 설치 프로그램을 이용하기로 했다. (Xming 사용)
 $ export DISPLAY=MY_IP_ADDRESS:0.0;
 $ netca
-# 옵션에서 reconfiguration 선택 후 포트 변경해도 적용 안 됐다.
-# 옵션에서 delete 선택해서 제거 후, 8421 포트로 다시 설치했더니 바로 성공했다.
+```
 
+옵션에서 reconfiguration 말고 delete를 선택해서 제거 후 8421포트로 새로 설치한다.
+
+```
 # 확인
 $ netstat -nap | grep LISTEN | grep :8421
 ```
+
+만약 외부에서 DB 연결이 되지 않을 경우 리스너 상태를 확인한다.
+
+```
+$ lsnrctl status [LISTENER_NAME]
+```
+
+결과 중에 `the listener supports no services.` 문구가 보일 경우 리스너가 Oracle DB 인스턴스와 연결되지 않은 것이다.
+
+이 경우 직접 $ORACLE_HOME/network/admin/listener.ora 파일을 수정한다. 파일 상단에 아래 내용을 추가한 후,
+
+```
+SID_LIST_[LISTENER_NAME] =
+  (SID_LIST =
+    (SID_DESC =
+      (SID_NAME = [SID_NAME])
+      (ORACLE_HOME = [ORACLE_HOME_PATH])
+    )
+  )
+```
+
+리스너만 재시작하면 된다.
+
+```
+$ lsnrctl stop [LISTENER_NAME]
+$ lsnrctl start [LISTENER_NAME]
+```
+
+결과에 `Service [INSTANCE_NAME] has 1 instance(s).` 와 같은 문구가 보이면 성공이다.
+
 
 #### 서버 재부팅 시 자동실행 설정
 
