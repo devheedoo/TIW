@@ -1,10 +1,11 @@
+# CentOS7-Oracle11g 설치
+
+Oracle 11.2.0.1.0 (Oracle 11g)
+
 ## 설치 환경
 - OS : CentOS Linux release 7.6.1810 (Core)
 - Vendor : Oracle
-- Version : 11.2.0.1.0
 - Port : 8421
-- SID : oracle11g
-- 계정 정보 : oracle / oracle
 - 설치경로 : /app/oracle/product/11.2.0.1
 
 ## 설치과정
