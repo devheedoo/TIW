@@ -29,6 +29,8 @@ httpd-xx.zip 압축 풀어서 Apachexx 폴더를 C:\로 이동시킨다.
 - C:\Apachexx\conf\httpd.conf
 - C:\Apachexx\conf\extra\httpd-vhosts.conf
 
+> SSL 사용하고 있으면 httpd.conf에서 httpd-ssl 모듈 주석 
+
 #### 윈도우 서비스 등록
 
 Apache를 윈도우 서비스로 등록한다:
