@@ -43,7 +43,6 @@ $feed->set_feed_url(array(
     'http://newssearch.naver.com/search.naver?where=rss&query=%EC%A4%91%EC%86%8C%ED%98%95%20%EC%9B%90%EC%9E%90%EB%A1%9C&field=0&nx_search_query=&nx_and_query=&nx_sub_query=&nx_search_hlquery=&is_dts=0',
     'http://digg.com/rss/index.xml',
     'http://newssearch.naver.com/search.naver?where=rss&query=%EC%9B%90%EC%9E%90%EB%A0%A5%20%EC%9C%A0%EB%9F%BD&field=0&nx_search_query=&nx_and_query=&nx_sub_query=&nx_search_hlquery=&is_dts=0',
-    'http://localhost/Contents/popularize/simplepie_rss_test.xml',
 ));
 
 // 피드 객체 생성
@@ -51,6 +50,9 @@ $feed->init();
 
 // This will work if all of the feeds accept the same settings.
 $feed->handle_content_type();
+
+// Set cache
+$feed->set_cache_location('../cache');
 
 foreach ($feed->get_items() as $item) {
 
