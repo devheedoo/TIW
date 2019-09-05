@@ -1,11 +1,5 @@
 # [Java] 파일 업로드 시 MIME 타입 확인
 
-> 참고한 자료:
->
-> - Apache Tika 0.9 테스트 결과 목록, https://issues.jboss.org/browse/EXOJCR-1378
-> - MIME type check using tika jars, https://stackoverflow.com/questions/22225813/mimetype-check-using-tika-jars
-> - Complete list of MIME types, https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
-
 파일 업로드 관련하여 정부의 보안 강화 지침에 따라 파일 업로드 시 MIME 타입 확인하는 기능을 추가했다.
 
 참고로 나모 크로스에디터 기술팀에 문의해봤는데 에디터에서 파일 업로드 시에는 MIME 타입을 확인하지 않고 파일명에 적힌 확장자로만 확인한다고 한다. 그래서 에디터에서 업로드 기능을 모두 비활성화했다.
@@ -96,3 +90,9 @@ private boolean isAllowedMIMEType(String mimeType) {
     return false;
 }
 ```
+
+## 참고자료
+
+- Apache Tika 0.9 테스트 결과 목록, https://issues.jboss.org/browse/EXOJCR-1378
+- MIME type check using tika jars, https://stackoverflow.com/questions/22225813/mimetype-check-using-tika-jars
+- Complete list of MIME types, https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
