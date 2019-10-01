@@ -1,6 +1,6 @@
 # GitHub Pages에 Create React App을 User Page로 올리기
 
-GitHub Pages에서 Create React App을 이용해 간단한 웹사이트를 만들 계획을 세웠습니다. 진행과정입니다:
+GitHub Pages에서 Create React App을 이용해 간단한 웹사이트를 만들었습니다. 진행과정입니다:
 
 1. GitHub Pages 종류 확인
 2. Create React App 공식 배포 문서에 따라 배포
