@@ -14,23 +14,21 @@ GitHub Pages는 크게 세 종류로 나뉩니다. [User, Organization, and Proj
 
 - User Page: `<username>.github.io` 도메인을 사용하는 페이지
 - Organization Page: `<orgname>.github.io` 도메인을 사용하는 페이지
-- Project Page: `<username>.github.io/<projectname>` 또는 `<orgname>.github.io/<projectname>`
+- Project Page: `<username>.github.io/<projectname>` 또는 `<orgname>.github.io/<projectname>` 도메인을 사용하는 페이지
 
 프로젝트명이 뒤에 붙는게 싫습니다. User Page 방식의 URL을 사용하기로 합니다. 기존 GitHub 계정은 이미 User Page를 사용중이어서 새 GitHub 계정을 생성했습니다.
 
 ## 2. Create React App 공식 배포 문서에 따라 배포
 
-[Create React App 공식 배포 문서](https://create-react-app.dev/docs/deployment)에는 GitHub Pages에 배포하는 방법이 나와있습니다. package.json 파일을 수정하고, gh-pages 라이브러리를 추가하면 됩니다. 그리고 친절하게, project page가 아니라 user page로 사용할 경우 package.json 내용을 다르게 수정해야 한다고 알려줍니다.
+[Create React App 공식 배포 문서](https://create-react-app.dev/docs/deployment)에는 GitHub Pages에 배포하는 방법이 나와있습니다. package.json 파일을 수정하고, gh-pages 라이브러리를 추가하면 됩니다. 기본적인 설명은 Project Page 기준으로 작성되어 있고, User page로 사용할 경우 package.json 내용을 다르게 수정해야 한다고 알려줍니다.
 
 하지만 공식 배포 문서를 따라 User Page 배포 과정을 진행한 후 `<username>.github.io`에 접속하면 README.md 파일만 보였습니다.
 
 ## 3. Project Page 방식을 통해 문제 확인
 
-Project Page 방식으로 진행했더니 문제가 없었습니다.
+Project Page 방식으로 진행했더니 문제가 없었습니다. Project Page를 살펴보며 원인을 찾기로 했습니다.
 
-저장소를 살펴봤더니 default branch는 `master`지만 Settings - GitHub Pages - Source 옵션은 `gh-pages` branch를 사용하고 있었습니다.
-
-저장소를 `gh-pages` branch로 바꿔봤더니 리소스는 하나도 없고 Create React App을 빌드했을 때 build 폴더에 생성되는 코드들만 보였습니다.
+Project Page 저장소를 살펴봤더니 default branch는 `master`지만 Settings - GitHub Pages - Source 옵션은 `gh-pages` branch를 사용하고 있었습니다. 저장소를 `gh-pages` branch로 바꿔봤더니 리소스는 하나도 없고 Create React App을 빌드했을 때 build 폴더에 생성되는 코드들만 보였습니다.
 
 Settings - GitHub Pages - Source가 가리키는 곳에 빌드 결과 파일이 위치해야 한다는 걸 알았습니다. GitHub Pages에서 웹사이트를 만들 때에는 다음과 같이 빌드 결과 파일을 올려야하는 것이었습니다.
 
